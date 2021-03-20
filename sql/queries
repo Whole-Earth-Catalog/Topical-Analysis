@@ -68,3 +68,13 @@ from english_clusters, tag100
 where english_clusters.id = tag100.id
 group by tag100.$1) as author_cluster
 where num_ids > 1 and num_clusters = 1;
+
+# number of authors with more than 1 title per number of clusters
+select num_clusters, count(author_id)
+from (
+select tag100.$1 as author_id, count(distinct cluster) as num_clusters, count(english_clusters.id) as num_ids
+from english_clusters, tag100
+where english_clusters.id = tag100.id
+group by tag100.$1) as author_cluster
+where num_ids > 1
+group by num_clusters;
