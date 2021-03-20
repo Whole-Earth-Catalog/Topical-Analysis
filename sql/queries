@@ -1,0 +1,70 @@
+# Queries on first batch of clustered data (4 clusters)
+
+# count how many titles are in each cluster
+select cluster, count(id) as num_ids, count(id)/3415567*100 as percentage
+from english_clusters
+group by cluster;
+
+# group by nature of content
+select cluster, substring(tag008.data,25,3), count(english_clusters.id)
+from english_clusters, tag008
+where english_clusters.id = tag008.id
+group by cluster, substring(tag008.data, 25,3)
+having count(english_clusters.id) > 100
+order by cluster, count(english_clusters.id);
+
+# get total number of titles in each genre
+select substring(tag008.data,34,1), count(english_clusters.id)
+from english_clusters, tag008
+where english_clusters.id = tag008.id
+group by substring(tag008.data, 34,1)
+order by count(english_clusters.id) desc;
+
+# group by genre and cluster
+select substring(tag008.data,34,1),cluster,  count(english_clusters.id)
+from english_clusters, tag008
+where english_clusters.id = tag008.id
+group by cluster, substring(tag008.data, 34,1)
+order by substring(tag008.data, 34,1), cluster;
+
+# group by subject tag and cluster
+select cluster, replace(tag650.$a, ".", ""), count(tag650.id)
+from english_clusters, tag650
+where english_clusters.id = tag650.id
+group by cluster, replace(tag650.$a, ".", "")
+order by cluster, count(tag650.id) desc;
+
+# number of authors in english_clusters
+select count(*)
+from (
+select tag100.$1, count(distinct cluster) as num_clusters, count(english_clusters.id) as num_ids
+from english_clusters, tag100
+where english_clusters.id = tag100.id
+group by tag100.$1) as author_cluster;
+
+# number of authors in only one cluster
+select count(*)
+from (
+select tag100.$1, count(distinct cluster) as num_clusters, count(english_clusters.id) as num_ids
+from english_clusters, tag100
+where english_clusters.id = tag100.id
+group by tag100.$1) as author_cluster
+where num_clusters = 1;
+
+# number of authors with more than 1 title
+select count(*)
+from (
+select tag100.$1, count(distinct cluster) as num_clusters, count(english_clusters.id) as num_ids
+from english_clusters, tag100
+where english_clusters.id = tag100.id
+group by tag100.$1) as author_cluster
+where num_ids > 1;
+
+# number of authors with more than 1 title and only 1 cluster
+select count(*)
+from (
+select tag100.$1, count(distinct cluster) as num_clusters, count(english_clusters.id) as num_ids
+from english_clusters, tag100
+where english_clusters.id = tag100.id
+group by tag100.$1) as author_cluster
+where num_ids > 1 and num_clusters = 1;
