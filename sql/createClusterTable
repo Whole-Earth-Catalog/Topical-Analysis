@@ -1,9 +1,20 @@
+# for 4 cluster data
 CREATE TABLE IF NOT EXISTS english_clusters( 
   id varchar(30), 
   cluster varchar(1) 
 );
 
 load data local infile 'clean_clustered_data.tsv' into table english_clusters 
+fields terminated by '\t' 
+lines terminated by '\n' 
+ignore 1 lines;
+
+# for 6 cluster data
+CREATE TABLE IF NOT EXISTS english_clusters6( 
+  id varchar(30), 
+  cluster varchar(1) 
+);
+load data local infile 'clean_clustered_data6.tsv' into table english_clusters6 
 fields terminated by '\t' 
 lines terminated by '\n' 
 ignore 1 lines;
