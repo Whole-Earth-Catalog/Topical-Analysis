@@ -18,3 +18,23 @@ load data local infile 'clean_clustered_data6.tsv' into table english_clusters6
 fields terminated by '\t' 
 lines terminated by '\n' 
 ignore 1 lines;
+
+# for litform 9 clusters
+CREATE TABLE IF NOT EXISTS litform_clusters9( 
+  id varchar(30), 
+  cluster varchar(1) 
+);
+load data local infile 'clean_litform_9cl.tsv' into table litform_clusters9
+fields terminated by '\t' 
+lines terminated by '\n' 
+ignore 1 lines;
+
+# for litform 11 clusters
+CREATE TABLE IF NOT EXISTS litform_clusters11( 
+  id varchar(30), 
+  cluster varchar(2) 
+);
+load data local infile 'clean_litform_11cl.tsv' into table litform_clusters11
+fields terminated by '\t' 
+lines terminated by '\n' 
+ignore 1 lines;
