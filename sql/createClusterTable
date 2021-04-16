@@ -59,6 +59,16 @@ fields terminated by '\t'
 lines terminated by '\n' 
 ignore 1 lines;
 
+# for 1600s_3cl
+CREATE TABLE IF NOT EXISTS 1600s_3cl( 
+  id varchar(30), 
+  cluster varchar(1) 
+);
+load data local infile 'clean_1600s_3cl.tsv' into table 1600s_3cl
+fields terminated by '\t' 
+lines terminated by '\n' 
+ignore 1 lines;
+
 # for 1700s
 CREATE TABLE IF NOT EXISTS 1700s_cl( 
   id varchar(30), 
