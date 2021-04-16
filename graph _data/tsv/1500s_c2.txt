@@ -1,0 +1,21 @@
+subject	num_titles
+English literature	7639
+Sermons, English	4568
+Christian life	2761
+Medicine	2006
+Prayers	1466
+Conduct of life	1466
+Theology, Doctrinal	1403
+Almanacs, English	1116
+Catechisms, English	957
+Astrology	953
+Marriage	938
+Proclamations	828
+Women	786
+Latin language	770
+Hygiene	767
+Psalters	758
+Lord's Supper	742
+English language	698
+Law	697
+Military art and science	651

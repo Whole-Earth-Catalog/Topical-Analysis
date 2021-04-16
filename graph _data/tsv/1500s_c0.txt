@@ -1,0 +1,21 @@
+subject	num_titles
+English literature	10209
+Latin language	954
+Funeral sermons	842
+Sermons, English	618
+Land tenure	426
+Real property	419
+Law	401
+Almanacs, English	373
+Deeds	310
+Disputations	287
+Christian life	269
+Ballads, English	247
+Theology, Doctrinal	239
+English language	216
+Printers' marks	215
+English drama	209
+Law reports, digests, etc	186
+Death	174
+English poetry	172
+Astrology	165

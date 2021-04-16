@@ -1,0 +1,21 @@
+subject	num_titles
+Sermons, English	38525
+English literature	32609
+Ballads, English	14743
+Christian life	12463
+Politics and government	9088
+Conduct of life	5288
+Society of Friends	5228
+English drama	4984
+Funeral sermons	4939
+Dissenters, Religious	4891
+Church and state	4610
+Puritans	3927
+Medicine	3576
+Theology, Doctrinal	3508
+Astrology	3439
+Meditations	3184
+Almanacs, English	3154
+English poetry	2897
+English language	2736
+Broadsides	2602

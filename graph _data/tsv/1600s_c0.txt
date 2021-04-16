@@ -1,0 +1,21 @@
+subject,num_titles
+"Politics and government",14283
+"Sermons, English",9172
+"Fast-day sermons",4026
+"Church and state",3875
+Taxation,2861
+"Brit Tracts",2024
+"Trials (Treason)",1708
+Law,1586
+Catholics,1584
+"Diplomatic relations",1382
+Broadsides,1336
+"Popish Plot, 1678",1321
+"Finance, Public",1270
+Treason,1235
+"Dissenters, Religious",1219
+"English literature",1126
+"Political science",1045
+"Armed Forces",994
+Presbyterianism,978
+Anti-Catholicism,928
