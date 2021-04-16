@@ -1,0 +1,15 @@
+
+1500 number of duplicate subjects: 21
+1500c0 has 11 rows
+1500c1 has 8 rows
+1500c2 has 6 rows
+
+1600 number of duplicate subjects: 13
+1600c0 has 20 rows
+1600c1 has 7 rows
+1600c2 has 7 rows
+
+1700 number of duplicate subjects: 13
+1700c0 has 10 rows
+1700c1 has 9 rows
+1700c2 has 17 rows
