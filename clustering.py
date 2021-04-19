@@ -1,10 +1,15 @@
 import csv, matplotlib
 import pandas as pd, time, sys
+import matplotlib.pyplot as plt
+import os
+from sklearn.cluster import KMeans
+
 
 def main():
+  # reading in the data
   titles = []
   ids = []
-  filename = "data/" + sys.argv[1]
+  filename = sys.argv[1]
   with open(filename, newline='') as csvfile:
     tsvr = csv.reader(csvfile, delimiter='\t')
     for line in tsvr:
@@ -16,14 +21,12 @@ def main():
       except:
         pass
 
-  #cleaned = clean(titles)
+  #####################################################
+  # making elbow plot to determine optimal k 
+  # (can be commented out if not needed) 
   from sklearn.feature_extraction.text import TfidfVectorizer
   vectorizer = TfidfVectorizer(stop_words={'english'})
   X = vectorizer.fit_transform(titles)
-
-  import matplotlib.pyplot as plt
-  import os
-  from sklearn.cluster import KMeans
   
   Sum_of_squared_distances = []
   K = range(2,10)
@@ -36,13 +39,12 @@ def main():
   plt.xlabel('k')
   plt.ylabel('Sum_of_squared_distances')
   plt.title('Elbow Method For Optimal k')
-  #plt.show()
   
   fig_name = sys.argv[3] + '.jpeg'
   plt.savefig(fig_name)
   plt.show()
- 
-  
+  ######################################################
+  # conducting the k means clustering
   true_k = int(sys.argv[2])
   model = KMeans(n_clusters=true_k, init='k-means++', max_iter=200, n_init=10)
   model.fit(X)
@@ -50,9 +52,11 @@ def main():
   labels=model.labels_
   title_cl=pd.DataFrame(list(zip(ids,labels)),columns=['title','cluster'])
   pd.set_option("display.max_rows", None, "display.max_columns", None)
+  # output is printed! pipe out to a file if printing
+  # to console is not necessary
   print(title_cl.sort_values(by=['cluster']))
   
- 
+# times the code if needed  
 start_time = time.time()
 main()
 #print("--- %s seconds ---" % (time.time() - start_time))
