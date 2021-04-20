@@ -1,0 +1,7 @@
+use webc;
+select replace(tag650.$a, ".", "") as subject, count(tag650.id) as num_titles
+from 1600s_3cl, tag650
+where 1600s_3cl.id = tag650.id and cluster = '2'
+group by replace(tag650.$a, ".", "")
+order by count(tag650.id) desc
+limit 20;
